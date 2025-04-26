@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECOS DEL CÍRCULO</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100dvh;
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    #choices {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    button {
+      background: none;
+      border: 1px solid white;
+      color: white;
+      padding: 10px 20px;
+      font-family: monospace;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="text">
+  <p>Lo hiciste vos.<br>
+  No sabías qué era,<br>
+  pero igual lo escaneaste.<br>
+  ¿seguís?</p>
+</div>
+
+<div id="choices">
+  <button onclick="aceptar()">Sí</button>
+  <button onclick="rechazar()">No</button>
+</div>
+
+<script>
+function aceptar() {
+  document.getElementById('text').innerHTML = `
+    <p>Se activó tu ingreso al primer círculo.<br>
+    Ya no podés deshacerlo.<br>
+    Y todavía no sabés qué es.</p>
+  `;
+  document.getElementById('choices').style.display = 'none';
+  setTimeout(() => {
+    window.location.href = "capitulo1.html"; // ← Acá ponés la URL de tu Capítulo 1
+  }, 3000); // 3 segundos
+}
+
+function rechazar() {
+  document.getElementById('text').innerHTML = `
+    <p>Podés cerrar esta página.<br>
+    Pero algo se activó igual.<br>
+    Tarde o temprano, vas a volver.</p>
+  `;
+  document.getElementById('choices').style.display = 'none';
+  setTimeout(() => {
+    window.location.href = "https://www.google.com"; // ← Redirige a Google
+  }, 3000); // 3 segundos
+}
+</script>
+
+</body>
+</html>
